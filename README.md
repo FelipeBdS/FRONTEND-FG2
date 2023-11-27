@@ -7,7 +7,7 @@
 - Navegue até o diretório do projeto no terminal.
 - Execute o comando npm install para instalar as dependências.
 - Após a instalação, execute npm start para iniciar o servidor de desenvolvimento.
-- Abra o navegador e acesse http://localhost:3000.
+- Abra o navegador e acesse http://localhost:5173.
 # Tecnologias Utilizadas
 - ReactJS
 - React Router DOM
