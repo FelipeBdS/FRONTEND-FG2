@@ -3,58 +3,77 @@ import styled from 'styled-components';
 export const ContainerMainCadastro = styled.div`
     width: 100vw;
     height: 100vh;
+    background-color: rgb(16, 17, 29);
     display: flex;
     flex-direction: column;
-    gap: 2vh;
-    background-color: rgb(16, 17, 29);
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    position: relative;
+    gap: 2vh;
     
-`;
-
-export const TitleDiv = styled.div`
-    width: 80vw;
-    height: 10vh;
-    border-radius: 20px;
-    text-align: center;
-    background-color: rgba(100, 80, 200, 1);
-    color: white;
-    box-shadow: 0 0 20px rgba(100, 80, 200, 2);
-    font-weight: bold;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 1);
-    padding-top: 40px;
-    font-size: 30px;
-`;
-
-export const CadastroForm = styled.form`
-    width: 80vw;
-    height: 70vh;
-    display: grid;
-`;
-
-export const FormLabel = styled.label`
-    display: block;
-    margin-bottom: 10px;
-`;
-
-export const FormInput = styled.input`
-    width: 50%;
-    padding: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-
     @media (min-width: 320px) and (max-width: 839px) {
-        width: 80%;
+        gap:2vh;
     }
 `;
 
+export const TitleDiv = styled.h2`
+    width: 80%;
+    height: 10vh;
+    font-size: 2rem;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: rgba(100, 80, 200, 1);
+    color: white;
+    box-shadow: 0 0 20px rgba(100, 80, 200, 2);
+`;
 
-// Div para organizar melhor a label junto com o input para nao quebrar a estilização e responsividade
+export const CadastroForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  gap: 1rem;
+  border: 2px solid black;
+  box-shadow: 0 0 20px rgba(100, 80, 200, 2);
+`;
+
 export const LabelInputDiv = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    width: 100%;
-    height: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  color: white;
+`;
+
+export const FormLabel = styled.label`
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+`;
+
+export const FormInput = styled.input`
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 80%;
+`;
+
+export const SubmitButton = styled.button`
+    background-color: rgba(100, 80, 200, .6);
+    color: #fff;
+    padding: 10px;
+    width: 90%;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    &:hover {
+        background-color: rgba(100, 80, 200, 1);
+    }
+
+    @media (min-width: 320px) and (max-width: 839px) {
+        font-size: 1rem;
+        
+    }
 `;
