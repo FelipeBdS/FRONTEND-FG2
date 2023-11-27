@@ -5,14 +5,14 @@ import {Login} from "./Pages/Login"
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "",
     element: <Login />,
   },
   {
-    path: "/home",
+    path: "home",
     element: <Home />,
   },
-])
+],{basename: "/FRONTEND-FG2/"})
 
 
 function App() {
