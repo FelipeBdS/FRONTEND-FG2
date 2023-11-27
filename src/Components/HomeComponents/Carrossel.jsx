@@ -11,7 +11,9 @@ const Carrossel = () => {
 
   useEffect(() => {
     axios("https://fg2-backend-2be0eab4ad81.herokuapp.com/api/camisas/maisVendidas")
-      .then((response) => setCamisas(response.data.camisas || []))
+      .then((response) => {
+        setCamisas(response.data.camisas || [])
+      })
       .catch((error) => console.error("Erro ao buscar camisas:", error));
   }, []);
   const settings = {
@@ -54,7 +56,7 @@ const Carrossel = () => {
     <div>
       <CarrosselDiv>
         <Slider {...settings}>
-          {camisas.map(camisa => {
+          {camisas.map(camisa => (
             <div key={camisa.id}>
               <CardCamisa
                 src={camisa.url_imagem1}
@@ -62,7 +64,7 @@ const Carrossel = () => {
                 description={camisa.descricao}
               />
             </div>
-          })}
+          ))}
         </Slider>
       </CarrosselDiv>
     </div>
