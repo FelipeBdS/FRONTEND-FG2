@@ -54,7 +54,7 @@ const Carrossel = () => {
     <div>
       <CarrosselDiv>
         <Slider {...settings}>
-          {camisas.map((camisa) => (
+          {camisas.map(camisa => {
             <div key={camisa.id}>
               <CardCamisa
                 src={camisa.url_imagem1}
@@ -62,7 +62,7 @@ const Carrossel = () => {
                 description={camisa.descricao}
               />
             </div>
-          ))}
+          })}
         </Slider>
       </CarrosselDiv>
     </div>
