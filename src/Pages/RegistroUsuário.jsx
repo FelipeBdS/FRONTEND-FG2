@@ -1,11 +1,9 @@
 import CadastroFormComponent from "../Components/CadastroComponents/CadastroFormComponent";
 
-const RegistroUsuario = () => {
+export const RegistroUsuario = () => {
     return (
         <>
             <CadastroFormComponent />
         </>
     )
 }
-
-export default RegistroUsuario;

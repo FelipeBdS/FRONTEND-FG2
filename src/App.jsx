@@ -2,6 +2,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import GlobalStyles from "./GlobalStyles/GlobalStyles";
 import {Home} from "./Pages/Home"
 import {Login} from "./Pages/Login"
+import {RegistroUsuario} from "./Pages/RegistroUsuário"
 
 const router = createBrowserRouter([
   {
@@ -11,6 +12,10 @@ const router = createBrowserRouter([
   {
     path: "home",
     element: <Home />,
+  },
+  {
+    path: "cadastro",
+    element: <RegistroUsuario />,
   },
 ],{basename: "/FRONTEND-FG2/"})
 
