@@ -1,12 +1,10 @@
 
 import Carrossel from '../Components/HomeComponents/Carrossel'
 
-const Home = () => {
+export const Home = () => {
   return (
     <>
       <Carrossel />
     </>
   )
 }
-
-export default Home
