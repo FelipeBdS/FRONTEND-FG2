@@ -8,7 +8,7 @@
 - Execute o comando npm install para instalar as dependências.
 - Após a instalação, execute npm start para iniciar o servidor de desenvolvimento.
 - Abra o navegador e acesse http://localhost:3000.
-#Tecnologias Utilizadas
+# Tecnologias Utilizadas
 - ReactJS
 - React Router DOM
 - React Slick (para o carrossel)
