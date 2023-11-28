@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 import {
   ContainerMainCadastro,
   TitleDiv,
@@ -10,9 +9,11 @@ import {
   SubmitButton
 } from './StyledCadastro';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from '../../Contexts/UserContext'; // Substitua pelo caminho correto
 
 const CadastroFormComponent = () => {
   const navigate = useNavigate();
+  const { cadastrar } = useUser();
   const [formData, setFormData] = useState({
     nome: '',
     nome_usuario: '',
@@ -35,14 +36,8 @@ const CadastroFormComponent = () => {
     e.preventDefault();
 
     try {
-      // Substitua a URL pelo endpoint correto da sua API
-      const response = await axios.post('https://fg2-backend-2be0eab4ad81.herokuapp.com/api/cliente/cadastrarCliente', formData);
-      console.log('Cadastro realizado com sucesso!');
-      if (response.status === 200) {
-        // Lógica para tratar sucesso 
-        console.log('Login bem-sucedido!');
-        navigate('/home')
-      }
+      await cadastrar(formData);
+      navigate('/home');
     } catch (error) {
       console.error('Erro ao cadastrar:', error.message);
     }

@@ -5,7 +5,7 @@ import {Login} from "./Pages/Login"
 import  RegistroUsuario  from './Pages/RegistroUsuario'
 import Sobre from "./Pages/Sobre";
 import Marcas from './Pages/Marcas'
-
+import { UserProvider } from './Contexts/UserContext'
 
 const router = createBrowserRouter([
   {
@@ -36,8 +36,10 @@ const router = createBrowserRouter([
 function App() {
   return (
       <>
+       <UserProvider>
        <GlobalStyles />
        <RouterProvider router={router} />
+       </UserProvider>
       </>
     
   );

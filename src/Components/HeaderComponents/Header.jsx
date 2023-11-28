@@ -3,32 +3,23 @@ import Fg2Logo from '../../assets/FG2-logo.png';
 import ShoppingCart1 from '../../assets/icons8-carrinho-de-compras.png';
 import ProfileIcon from '../../assets/icons8-usuário-60.png'
 import MenuIcon from '../../assets/icons8-cardápio-100.png'
- // Substitua pelo caminho correto
-import {
-  StyledHeader,
-  LogoAndNav,
-  Logo,
-  Menu,
-  CustomLink,
-  CartDiv,
-  MobileMenuIcon,
-  MobileDiv,
-  MobileCartDiv,
-  MobileShoppingCart,
-  // CadastroLink,
-  // MobileLoginLink,
-  UserIcon
-} from './StyledHeader'
-
+import { StyledHeader, LogoAndNav, Logo, Menu, CustomLink, CartDiv, MobileMenuIcon, MobileDiv, MobileCartDiv, MobileShoppingCart, UserIcon } from './StyledHeader';
+import { useUser } from '../../Contexts/UserContext'; 
+import { useNavigate } from 'react-router-dom';
 const Header = () => {
+  const navigate = useNavigate();
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
-  
+  const { user, logout } = useUser(); // Certifique-se de importar useUser do local correto
 
   const handleOpenMobileMenu = () => {
     setOpenMobileMenu(!openMobileMenu);
   }
 
-  
+  const handleLogout = () => {
+    logout();
+    navigate('/home');
+  }
+
 
   return (
     <>
@@ -43,7 +34,16 @@ const Header = () => {
           </Menu>
         </LogoAndNav>
         <CartDiv>
-          <UserIcon src={ProfileIcon} />
+          {/* Sempre exibe o ícone de usuário e o nome */}
+          <CustomLink to="/userInfo">
+            <UserIcon src={ProfileIcon} />
+            <span style={{ marginLeft: '8px' }}>{user ? user.nome_usuario : ''}</span>
+          </CustomLink>
+
+          {user && (
+            // Se o usuário estiver autenticado, exibe o botão de logout
+            <button onClick={handleLogout}>Logout</button>
+          )}
         </CartDiv>
       </StyledHeader>
 
@@ -55,11 +55,9 @@ const Header = () => {
           <CustomLink to="/sobre">Sobre</CustomLink>
           <MobileCartDiv>
             <MobileShoppingCart src={ShoppingCart1} />
-            
           </MobileCartDiv>
         </MobileDiv>
       )}
-    
     </>
   );
 };

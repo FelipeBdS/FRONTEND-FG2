@@ -12,7 +12,7 @@ export const DesktopCardContainer = styled.div`
 export const DesktopCard = styled.div`
     width: 60vw;
     max-width: 400px; /* Defina um valor máximo para o card */
-    height: auto;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     gap: 2vh;
@@ -36,4 +36,5 @@ export const Price = styled.div`
 
 export const Description = styled.div`
     padding: 10px;
+    font-size: 1rem;
 `;

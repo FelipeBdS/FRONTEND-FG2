@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 import { LoginForm, FormLabel, FormInput, SubmitButton, MainContainerLogin, LogoDiv, LogoImage, TabLinksContainer, TabLinkLogin, TabLinkCadastro, DivForm } from './StyledLogin';
 import { useNavigate } from 'react-router-dom';
-
+import { useUser } from '../../Contexts/UserContext'; // Substitua pelo caminho correto
 
 const LoginFormComponent = () => {
   const navigate = useNavigate();
+  const { login } = useUser();
   const [formData, setFormData] = useState({
     nome_usuario: '',
     senha: '',
@@ -24,31 +24,12 @@ const LoginFormComponent = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://fg2-backend-2be0eab4ad81.herokuapp.com/api/cliente/loginCliente', formData);
-
-      
-      if (response.status === 200) {
-        response.data;
-        navigate('/home');
-      }
+      await login(formData);
+      navigate('/home');
     } catch (error) {
-      if (error.response) {
-        // Resposta não 2xx
-        if (error.response.status === 401) {
-          setError(alert('Nome de usuário ou senha incorretos.'));
-        } else if (error.response.status === 404) {
-          setError(alert('Nome de usuário não encontrado.'));
-        }
-      } else if (error.request) {
-        // A requisição foi feita, mas não houve resposta
-        console.error('Erro ao aguardar resposta do servidor:', error.request);
-      } else {
-        // Algum outro erro
-        console.error('Erro ao enviar a requisição:', error.message);
-      }
+      setError(alert('Erro ao fazer login.'));
     }
   };
-
 
   return (
     
