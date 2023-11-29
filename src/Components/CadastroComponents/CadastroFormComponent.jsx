@@ -35,7 +35,6 @@ const CadastroFormComponent = () => {
     e.preventDefault();
 
     try {
-      // Substitua a URL pelo endpoint correto da sua API
       const response = await axios.post('https://fg2-backend-2be0eab4ad81.herokuapp.com/api/cliente/cadastrarCliente', formData);
       console.log('Cadastro realizado com sucesso!');
       if (response.status === 200) {
