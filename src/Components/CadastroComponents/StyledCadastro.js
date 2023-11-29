@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ContainerMainCadastro = styled.div`
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     background-color: rgb(16, 17, 29);
     display: flex;
     flex-direction: column;
@@ -19,6 +19,7 @@ export const ContainerMainCadastro = styled.div`
 export const TitleDiv = styled.h2`
     width: 80%;
     height: 10vh;
+    padding-top: 10px;
     font-size: 2rem;
     text-align: center;
     border: 2px solid black;
@@ -64,7 +65,7 @@ export const SubmitButton = styled.button`
     background-color: rgba(100, 80, 200, .6);
     color: #fff;
     padding: 10px;
-    width: 90%;
+    width: 60%;
     border: none;
     border-radius: 4px;
     cursor: pointer;

@@ -58,7 +58,15 @@ export const CustomLink = styled(Link)`
   font-size: 20px;
   cursor: pointer;
   letter-spacing: 3px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  span {
+    font-size: .7rem;
 
+
+  }
   &:hover {
     font-weight: bold;
     font-size: 23px;
@@ -67,6 +75,12 @@ export const CustomLink = styled(Link)`
   @media (min-width: 400px) and (max-width: 840px) {
     font-size: 15px; 
     
+  }
+
+  @media (min-width: 320px ) and (max-width: 610px) {
+    span {
+      display: none;
+    }
   }
 `;
 
@@ -211,5 +225,3 @@ export const MobileDiv = styled.div`
   padding-top: 3vh;
   z-index: 999;  
 `;
-
-

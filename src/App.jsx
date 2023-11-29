@@ -5,7 +5,8 @@ import {Login} from "./Pages/Login"
 import  RegistroUsuario  from './Pages/RegistroUsuario'
 import Sobre from "./Pages/Sobre";
 import Marcas from './Pages/Marcas'
-
+import { UserProvider } from './Contexts/UserContext'
+import UserInfo from "./Pages/UserInfo";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
     path: "marcas",
     element: <Marcas />,
   },
+  {
+    path: "userInfo",
+    element: <UserInfo />,
+  },
 
 ],{basename: "/FRONTEND-FG2/"})
 
@@ -36,8 +41,10 @@ const router = createBrowserRouter([
 function App() {
   return (
       <>
+       <UserProvider>
        <GlobalStyles />
        <RouterProvider router={router} />
+       </UserProvider>
       </>
     
   );

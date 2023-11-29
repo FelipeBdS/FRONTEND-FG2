@@ -1,6 +1,6 @@
 import CadastroFormComponent from "../Components/CadastroComponents/CadastroFormComponent";
 
-const RegistroUsuario = () => {
+ const RegistroUsuario = () => {
     return (
         <>
             <CadastroFormComponent />

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import  { useState } from 'react';
 import axios from 'axios';
 import {
   ContainerMainCadastro,
@@ -10,9 +10,11 @@ import {
   SubmitButton
 } from './StyledCadastro';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from '../../Contexts/UserContext'; // Substitua pelo caminho correto
 
 const CadastroFormComponent = () => {
   const navigate = useNavigate();
+  const { cadastrar } = useUser();
   const [formData, setFormData] = useState({
     nome: '',
     nome_usuario: '',
@@ -42,6 +44,8 @@ const CadastroFormComponent = () => {
         console.log('Login bem-sucedido!');
         navigate('/home')
       }
+      await cadastrar(formData);
+      navigate('/home');
     } catch (error) {
       console.error('Erro ao cadastrar:', error.message);
     }
