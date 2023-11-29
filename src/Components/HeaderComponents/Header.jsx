@@ -37,7 +37,7 @@ const Header = () => {
           {/* Sempre exibe o ícone de usuário e o nome */}
           <CustomLink to="/userInfo">
             <UserIcon src={ProfileIcon} />
-            <span style={{ marginLeft: '8px' }}>{user ? user.nome_usuario : ''}</span>
+            <span>Informações do perfil</span>
           </CustomLink>
 
           {user && (
