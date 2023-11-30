@@ -70,17 +70,17 @@ const UserInformation = () => {
         try {
             // Verificar o nome de usuário para confirmar
             if (deleteUsername === userInfo.nome_usuario) {
-                const response = await axios.delete('https://fg2-backend-2be0eab4ad81.herokuapp.com/api/cliente/excluirConta', userInfo);
+                const response = await axios.delete(`https://fg2-backend-2be0eab4ad81.herokuapp.com/api/cliente/excluirConta?nome_usuario=${userInfo.nome_usuario}`);
                 console.log('Resposta do backend:', response);
                 setShowDeleteModal(false);
                 navigate('/login');
-              } else {
+            } else {
                 alert('Erro ao excluir usuário.');
-              }
-            } catch (error) {
-              console.error('Erro ao deletar dados do usuário:', error);
             }
-          };
+        } catch (error) {
+            console.error('Erro ao deletar dados do usuário:', error);
+        }
+    };
 
     const handleInputChange = (e) => {
         setUserInfo({
