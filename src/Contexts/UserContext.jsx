@@ -1,9 +1,11 @@
-import React, { createContext, useState, useContext } from 'react';
+/* eslint-disable no-unused-vars */
+import  { createContext, useState, useContext } from 'react';
+import PropTypes from 'prop-types';  // Importar PropTypes
 import axios from 'axios';
+
 const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
-  
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
 
@@ -27,7 +29,6 @@ const UserProvider = ({ children }) => {
     }
   };
 
-    
   const logout = () => {
     setUser(null);
   };
@@ -39,6 +40,10 @@ const UserProvider = ({ children }) => {
   );
 };
 
+UserProvider.propTypes = {
+  children: PropTypes.node.isRequired,  // Definindo PropTypes para children
+};
+
 const useUser = () => {
   const context = useContext(UserContext);
   if (!context) {
@@ -47,4 +52,4 @@ const useUser = () => {
   return context;
 };
 
-export { UserProvider, useUser };
+export { UserProvider, useUser};
